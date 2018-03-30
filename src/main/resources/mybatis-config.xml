@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <!--<setting name="cacheEnabled" value="true"/>-->
+        <setting name="defaultStatementTimeout" value="3000"/>
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+        <!-- 设置但JDBC类型为空时,某些驱动程序 要指定值,default:OTHER，插入空值时不需要指定类型 -->
+        <setting name="jdbcTypeForNull" value="NULL"/>
+        <!--<setting name="mapUnderscoreToCamelCase" value="true"/>-->
+        <!--<setting name="useGeneratedKeys" value="true"/>-->
+    </settings>
+
+    <typeAliases>
+        <!--&lt;!&ndash;Entity&ndash;&gt;-->
+        <!--<typeAlias alias="User" type="pers.octave.server.sys.entity.User" />-->
+        <!--<typeAlias alias="Role" type="pers.octave.server.sys.entity.Role" />-->
+        <!--<typeAlias alias="Menu" type="pers.octave.server.sys.entity.Menu" />-->
+
+        <!--&lt;!&ndash;Base&ndash;&gt;-->
+        <typeAlias alias="Integer" type="java.lang.Integer" />
+        <typeAlias alias="Long" type="java.lang.Long" />
+        <typeAlias alias="String" type="java.lang.String" />
+        <typeAlias type="java.lang.Character" alias="Character"/>
+        <typeAlias alias="HashMap" type="java.util.HashMap" />
+        <typeAlias alias="LinkedHashMap" type="java.util.LinkedHashMap" />
+        <typeAlias alias="ArrayList" type="java.util.ArrayList" />
+        <typeAlias alias="LinkedList" type="java.util.LinkedList" />
+    </typeAliases>
+    <!--&lt;!&ndash;配置插件&ndash;&gt;-->
+    <!--<plugins>-->
+        <!--&lt;!&ndash;配置PageHelper分页插件&ndash;&gt;-->
+        <!--<plugin interceptor="com.github.pagehelper.PageInterceptor">-->
+            <!--<property name="reasonable" value="true"/>-->
+        <!--</plugin>-->
+    <!--</plugins>-->
+</configuration>

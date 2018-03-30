@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heshi.seckill.dao.OrderMapper">
+    <select id="getById" parameterType="Long" resultType="com.heshi.seckill.entity.Order">
+        SELECT * FROM tbl_order WHERE id = #{id}
+    </select>
+</mapper>

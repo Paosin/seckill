@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @date 2018/3/17 21:51
  */
 @Service
-@Transactional(readOnly = true)
 public class LoginService {
     public void register(User user) {
 

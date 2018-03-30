@@ -1,2 +1,2 @@
 # seckill
-Yes! Yes! Yes!
+

@@ -5,6 +5,7 @@ import com.heshi.seckill.entity.User;
 import com.heshi.seckill.service.LoginService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,6 @@ public class LoginController {
 
     @PostMapping("/login")
     public Message login(User user) {
-        return loginService.login(user) ? Message.getSuccess() : Message.getFail();
+        return loginService.login(user) ? Message.getSuccess() : new Message(HttpStatus.BAD_REQUEST,"登录失败",null);
     }
 }

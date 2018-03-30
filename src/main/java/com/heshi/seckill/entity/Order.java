@@ -7,4 +7,5 @@ package com.heshi.seckill.entity;
  * @date 2018/3/17 22:18
  */
 public class Order {
+
 }

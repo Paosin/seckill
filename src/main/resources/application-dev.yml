@@ -1,0 +1,45 @@
+server:
+  port: 80
+logging:
+  level:
+    root: info
+    com:
+      heshi: debug
+debug: true
+spring:
+  datasource:
+    name: test
+    url: jdbc:mysql://127.0.0.1:3306/seckill-dev?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 654321
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+    redis:
+      database: 0 # 默认数据库
+      host: 127.0.0.1
+      port: 6379
+      pool:
+        max-active: 8 #连接池最大连接数
+        max-wait: -1  #连接池最大等待时间（负数为无限制
+        max-idle: 8   #连接池最大空闲时间
+        min-idle: 0 #连接池最小空闲时间
+      timeout: 0 #连接池超过时间
+      expireTime: 300 #reids dictKey 过期时间 分钟
+    aop:
+      auto: true
+    http:
+      multipart:
+        max-file-size: 2000MB

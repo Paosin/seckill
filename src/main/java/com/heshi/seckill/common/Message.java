@@ -1,5 +1,7 @@
 package com.heshi.seckill.common;
 
+import org.springframework.http.HttpStatus;
+
 /**
  * @author Paosin
  * @version 1.0
@@ -7,9 +9,6 @@ package com.heshi.seckill.common;
  * @date 2018/3/17 22:09
  */
 public class Message {
-    public static final int CODE_SUCCESS = 200;
-    public static final int CODE_FAIL = 100;
-
     private Integer code;
     private String msg;
     private Object data;
@@ -17,33 +16,45 @@ public class Message {
     private Message() {
     }
 
-    private Message(Integer code, String msg, Object data) {
-        this.code = code;
+    public Message(HttpStatus code, String msg, Object data) {
+        this.code = code.value();
         this.msg = msg;
         this.data = data;
     }
 
     public static Message getSuccess() {
-        return new Message(CODE_SUCCESS, null, null);
+        return new Message(HttpStatus.OK, null, null);
     }
 
     public static Message getSuccess(String str, Object data) {
-        return new Message(CODE_SUCCESS, str, data);
-    }
-
-    public static Message getSuccess(Object data) {
-        return new Message(CODE_SUCCESS, null, data);
+        return new Message(HttpStatus.OK, str, data);
     }
 
     public static Message getSuccess(String str) {
-        return new Message(CODE_SUCCESS, str, null);
+        return new Message(HttpStatus.OK, str, null);
     }
 
-    public static Message getFail(String str) {
-        return new Message(CODE_FAIL, str, null);
+    public Integer getCode() {
+        return code;
     }
 
-    public static Message getFail() {
-        return new Message(CODE_FAIL, null, null);
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
     }
 }

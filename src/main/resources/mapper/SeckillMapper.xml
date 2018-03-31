@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heshi.seckill.dao.SeckillMapper">
+
+    <sql id="Base_col">id,goods_id,name,num,start_time,end_time,create_time,price,create_by</sql>
+
+    <select id="getById" parameterType="Long" resultType="com.heshi.seckill.entity.Seckill">
+        select
+        <include refid="Base_col"/>
+        from tbl_seckill WHERE id = #{id};
+    </select>
+
+    <select id="list" parameterType="com.heshi.seckill.entity.Seckill" resultType="java.util.List">
+        select
+        <include refid="Base_col"/>
+        from tbl_seckill;
+    </select>
+
+    <insert id="save" parameterType="com.heshi.seckill.entity.Seckill">
+        insert into tbl_seckill (
+        <include refid="Base_col"/>
+        ) values (
+        #{id},
+        #{goods.id},
+        #{name},
+        #{num},
+        #{startTime},
+        #{endTime},
+        #{createTime},
+        #{price},
+        #{createBy.id}
+        );
+    </insert>
+</mapper>

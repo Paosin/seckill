@@ -8,3 +8,7 @@ spring:
 mybatis:
   config-location: classpath:mybatis-config.xml
   mapper-locations: classpath:mapper/*.xml
+id:
+  gen:
+    worker: 1
+    datacenter: 1

@@ -13,17 +13,26 @@ import java.util.List;
  * @className BaseService
  * @date 2018/3/29 20:43
  */
-public class BaseService<D extends BaseDao<E>,E> {
+@Transactional(readOnly = true)
+public class BaseService<D extends BaseDao<E>, E> {
 
     @Autowired
     protected D dao;
 
-    public E get(String id){
+    public E get(String id) {
         return this.dao.getById(id);
     }
 
-    public E get(E entity){
+    public E get(E entity) {
         return this.dao.get(entity);
+    }
+
+    public List<E> list(E entity) {
+        return this.dao.list(entity);
+    }
+
+    public List<E> listAll(E entity) {
+        return this.dao.listAll(entity);
     }
 
     @Transactional

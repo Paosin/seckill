@@ -9,4 +9,5 @@ package com.heshi.seckill.common;
  * @date 2018/3/17 21:53
  */
 public interface Constants {
+
 }

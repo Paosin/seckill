@@ -2,9 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heshi.seckill.dao.UserMapper">
+    <sql id="Base_col">
+      id, username, password, avatar
+    </sql>
+    <insert id="register" parameterType="com.heshi.seckill.entity.User">
+        INSERT INTO tbl_user(
+          <include refid="Base_col"/>
+        ) VALUES (
+          #{id},#{username},#{password},#{avatar}
+        )
+    </insert>
     <select id="get" parameterType="Character">
         SELECT
         *
         FROM tbl_user;
+    </select>
+    <select id="login" resultType="com.heshi.seckill.entity.User">
+      select * from tbl_user WHERE username = #{username} and password = #{password};
     </select>
 </mapper>

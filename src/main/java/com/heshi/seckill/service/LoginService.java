@@ -1,7 +1,10 @@
 package com.heshi.seckill.service;
 
+import com.heshi.seckill.dao.UserMapper;
 import com.heshi.seckill.entity.User;
+import com.heshi.seckill.utils.HashUtils;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,11 +18,14 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class LoginService {
-    public void register(User user) {
+    @Autowired
+    private UserMapper userMapper;
 
+    public boolean register(User user) {
+        return this.userMapper.register(user) > 0;
     }
 
-    public boolean login(User user) {
-        return false;
+    public User login(String username, String password) {
+        return this.userMapper.login(username, HashUtils.getMD5(password));
     }
 }
